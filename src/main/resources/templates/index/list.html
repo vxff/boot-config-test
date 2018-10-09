@@ -1,0 +1,684 @@
+
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta name="description" content="网络传播-新闻媒体数据统计系统">
+  <meta name="author" content="">
+
+  <title>网络传播-新闻媒体数据统计系统</title>
+  
+<!--公共样式 start-->
+  <!-- Stylesheets 主要样式 -->
+  <link rel="stylesheet" href="../../global/css/bootstrap.min.css?v2.2.0">
+  <link rel="stylesheet" href="../../global/css/bootstrap-extend.min.css?v2.2.0">
+  <link rel="stylesheet" href="../../base/assets/css/site.min.css?v2.2.0">
+  <!-- Plugins 效果样式-->
+  <link rel="stylesheet" href="../../global/vendor/animsition/animsition.min.css?v2.2.0">
+  <link rel="stylesheet" href="../../global/vendor/asscrollable/asScrollable.min.css?v2.2.0">
+  <link rel="stylesheet" href="../../global/vendor/waves/waves.min.css?v2.2.0">
+  	
+ <!-- Plugins For This Page -->
+
+ <link rel="stylesheet" href="../../global/vendor/bootstrap-select/bootstrap-select.min.css?v2.2.0">
+ 
+<!--公共样式 end-->
+
+  <!-- Plugins For This Page -->
+  <!-- Page -->
+
+  <!-- Fonts 字体图标样式-->
+  <link rel="stylesheet" href="../../global/fonts/iconfont/iconfont.css?v2.2.0">
+
+  <!--[if lt IE 9]>
+    <script src="../../global/vendor/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 10]>
+    <script src="../../global/vendor/media-match/media.match.min.js"></script>
+    <script src="../../global/vendor/respond/respond.min.js"></script>
+    <![endif]-->
+
+  <!-- Scripts -->
+  <script src="../../global/vendor/modernizr/modernizr.min.js"></script>
+  <script src="../../global/vendor/breakpoints/breakpoints.min.js"></script>
+  <script>
+    Breakpoints();
+  </script>
+</head>
+
+<body class="dashboard">
+  <nav class="site-navbar navbar navbar-inverse navbar-fixed-top navbar-mega" role="navigation">
+  	<div class="padding-horizontal-20 clearfix">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided margin-0"
+      data-toggle="menubar">
+        <span class="sr-only">切换导航</span>
+        <span class="hamburger-bar"></span>
+      </button>
+      <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-collapse"
+      data-toggle="collapse">
+        <i class="icon icon-more" aria-hidden="true"></i>
+      </button>
+      <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
+      	<span class="font-size-20">网络传播</span>
+        <span class="navbar-brand-text font-size-12">新闻媒体数据统计系统</span>
+      </div>
+    </div>
+
+    <div class="navbar-container container-fluid">
+      <!-- Navbar Collapse -->
+      <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+        <!-- Navbar Toolbar Right -->
+        <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right"> 
+        	<li><a>欢迎来到新闻媒体数据统计系统</a></li>
+          <li>
+            <a class="font-size-12" href="login.html" title="退出">
+              <i class="icon  font-size-18" aria-hidden="true">&#xe6a3;</i>
+              退出
+            </a>
+          </li>
+        </ul>
+        <!-- End Navbar Toolbar Right -->
+      </div>
+      <!-- End Navbar Collapse -->
+    </div>
+   </div>    
+  </nav>
+
+<!--手机端显示的导航 start-->
+<div class="site-menubar">
+    <div class="site-menubar-body">
+      <div>
+        <div>
+        	<h3 class="font-size-24 blue-600 padding-left-20 margin-bottom-10">排行榜</h3>
+          <ul class="site-menu">                                               
+             <li class="site-menu-item">
+              <a href="list.html">
+                <i class="site-menu-icon icon" aria-hidden="true">&#xe638;</i>
+                <span class="site-menu-title">最新排行榜</span>                
+              </a>              
+            </li>
+            <li class="site-menu-item">
+              <a href="historyList.html">
+                <i class="site-menu-icon icon" aria-hidden="true">&#xe62a;</i>
+                <span class="site-menu-title">历史榜单</span>                
+              </a>              
+            </li>
+            <li class="site-menu-item active">
+              <a href="javascript:void(0)">
+                <i class="site-menu-icon icon" aria-hidden="true">&#xe651;</i>
+                <span class="site-menu-title">媒体来源管理</span>                
+              </a>              
+            </li>
+            <li class="site-menu-item">
+              <a href="zhiShuList.html">
+                <i class="site-menu-icon icon" aria-hidden="true">&#xe600;</i>
+                <span class="site-menu-title">指数分值管理</span>                
+              </a>              
+            </li>            
+          </ul>
+          
+           
+        </div>
+      </div>
+    </div>
+
+     
+  </div>  
+<!--手机端显示的导航 end--> 
+  
+ <!-- Page -->
+  <div class="page animsition">
+    <div class="page-content page-content-actions container-fluid">
+     <div class="row" data-plugin="matchHeight" data-by-row="true">
+         <div class="page-content">
+         	<div class="page-header">
+         		<h3 class="page-title">媒体来源管理</h3>         		
+         	</div>
+         	<div class="row clearfix">
+         		<div class="col-md-12">
+         			<div class="panel panel-bordered">
+         				<div class="panel-heading padding-10">         					
+         						<div class="bootstrap-select-auto margin-left-10 inline-block v-a-middle">
+         						<span>媒体地域</span>                  	
+                  	<select class="selectpicker">                    
+                    <option>全部</option>
+                    <option>北京</option>
+                    <option>天津</option>
+                    <option>上海</option>
+                    <option>重庆</option>
+                    <option>黑龙江</option>
+                    <option>天津</option>
+                    <option>吉林</option>
+                    <option>辽宁</option>
+                    <option>河北</option>
+                    <option>山西</option>
+                    <option>青海</option>
+                    <option>山东</option>
+                    <option>河南</option>
+                    <option>江苏</option>
+                    <option>安徽</option>
+                    <option>浙江</option>
+                    <option>福建</option>
+                    <option>江西</option>
+                    <option>湖南</option>
+                    <option>湖北</option>
+                    <option>广东</option>
+                    <option>台湾</option>
+                    <option>海南</option>
+                    <option>甘肃</option>
+                    <option>陕西</option>
+                    <option>四川</option>
+                    <option>贵州</option>
+                    <option>云南</option>
+                    <option>内蒙古</option>
+                    <option>新疆</option>
+                    <option>西藏</option>
+                    <option>宁夏</option>
+                    <option>广西</option>
+                    <option>香港</option>
+                    <option>澳门</option>
+                  </select>
+                  
+                 </div>                                    
+         					<div class="bootstrap-select-auto margin-left-10 inline-block v-a-middle">
+         						<span>媒体类型</span>
+                  	<select class="selectpicker">                    
+                    <option>微博</option>
+                    <option>微信</option>
+                    <option>app</option>
+                    <option>pc</option>
+                  </select>
+                  </div>
+                  <button class="btn btn-primary margin-left-10" onclick="update()">查询</button>         					
+         				  <div class="panel-actions">
+         				  	
+                  <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#addMediaModal"><i class="icon">&#xe61c;</i> 添加媒体</button>                  
+         				  </div>
+         				</div>
+         				<div class="panel-body padding-10">         					
+         					<div class="table-responsive">
+     <!-- 微博 start-->
+  <table border="0" cellspacing="0" cellpadding="0" class="table table-border table-bordered table-gray table-hover table-striped table-c table-fixed margin-0">
+ <thead>
+  <tr>    
+    <th width="70">序号</th>
+    <th width="90">地域</th>
+    <th width="110">服务单位</th>
+    <th>url</th>
+    <th width="120">微博昵称</th>
+    <th width="160">创建时间</th>
+    <th width="160">修改时间</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+    <td>1</td>
+    <td>天津</td>
+    <td>北方网</td>
+    <td>weibo.com/323</td>    
+    <td>北方网</td>
+    <td>2018-04-13  08:34</td>
+    <td>2018-05-02  08:23</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>天津</td>
+    <td>北方网</td>
+    <td>http://192.168.0.101:8021/newsMediaDataStatisticsSystem-html/historyList.html</td>    
+    <td>北方网</td>
+    <td>2018-04-13  08:34</td>
+    <td>2018-05-02  08:23</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>天津</td>
+    <td>北方网</td>
+    <td>http://192.168.0.101:8021/newsMediaDataStatisticsSystem-html/historyList.html</td>    
+    <td>北方网</td>
+    <td>2018-04-13  08:34</td>
+    <td>2018-05-02  08:23</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>天津</td>
+    <td>北方网</td>
+    <td>http://192.168.0.101:8021/newsMediaDataStatisticsSystem-html/historyList.html</td>    
+    <td>北方网</td>
+    <td>2018-04-13  08:34</td>
+    <td>2018-05-02  08:23</td>
+  </tr>
+ </tbody>
+         							
+         						</table>
+    <!-- 微博 end--> 
+    
+    <!-- 微信 start-->
+  <table border="0" cellspacing="0" cellpadding="0" class="table table-border table-bordered table-gray table-hover table-striped table-c table-fixed margin-0">
+ <thead>
+  <tr>    
+    <th width="70">序号</th>
+    <th width="90">地域</th>
+    <th width="110">服务单位</th>
+    <th>url</th>
+    <th width="120">公众号名称</th>
+    <th width="160">创建时间</th>
+    <th width="160">修改时间</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+    <td>1</td>
+    <td>天津</td>
+    <td>北方网</td>
+    <td>weibo.com/323</td>    
+    <td>北方网</td>
+    <td>2018-04-13  08:34</td>
+    <td>2018-05-02  08:23</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>天津</td>
+    <td>北方网</td>
+    <td>http://192.168.0.101:8021/newsMediaDataStatisticsSystem-html/historyList.html</td>    
+    <td>北方网</td>
+    <td>2018-04-13  08:34</td>
+    <td>2018-05-02  08:23</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>天津</td>
+    <td>北方网</td>
+    <td>http://192.168.0.101:8021/newsMediaDataStatisticsSystem-html/historyList.html</td>    
+    <td>北方网</td>
+    <td>2018-04-13  08:34</td>
+    <td>2018-05-02  08:23</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>天津</td>
+    <td>北方网</td>
+    <td>http://192.168.0.101:8021/newsMediaDataStatisticsSystem-html/historyList.html</td>    
+    <td>北方网</td>
+    <td>2018-04-13  08:34</td>
+    <td>2018-05-02  08:23</td>
+  </tr>
+ </tbody>
+         							
+         						</table>
+    <!-- 微信 end-->   
+    
+    <!-- app start-->
+  <table border="0" cellspacing="0" cellpadding="0" class="table table-border table-bordered table-gray table-hover table-striped table-c table-fixed margin-0">
+ <thead>
+  <tr>    
+    <th width="70">序号</th>
+    <th width="90">地域</th>
+    <th width="110">服务单位</th>
+    <th>url</th>
+    <th width="120">api接口</th>
+    <th width="160">创建时间</th>
+    <th width="160">修改时间</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+    <td>1</td>
+    <td>天津</td>
+    <td>北方网</td>
+    <td>weibo.com/323</td>    
+    <td>120.23.23.23/beifang</td>
+    <td>2018-04-13  08:34</td>
+    <td>2018-05-02  08:23</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>天津</td>
+    <td>北方网</td>
+    <td>http://192.168.0.101:8021/newsMediaDataStatisticsSystem-html/historyList.html</td>    
+    <td>120.23.23.23/beifang</td>
+    <td>2018-04-13  08:34</td>
+    <td>2018-05-02  08:23</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>天津</td>
+    <td>北方网</td>
+    <td>http://192.168.0.101:8021/newsMediaDataStatisticsSystem-html/historyList.html</td>    
+    <td>120.23.23.23/beifang</td>
+    <td>2018-04-13  08:34</td>
+    <td>2018-05-02  08:23</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>天津</td>
+    <td>北方网</td>
+    <td>http://192.168.0.101:8021/newsMediaDataStatisticsSystem-html/historyList.html</td>    
+    <td>120.23.23.23/beifang</td>
+    <td>2018-04-13  08:34</td>
+    <td>2018-05-02  08:23</td>
+  </tr>
+ </tbody>
+         							
+         						</table>
+    <!-- app end--> 
+    
+    <!-- pc start-->
+  <table border="0" cellspacing="0" cellpadding="0" class="table table-border table-bordered table-gray table-hover table-striped table-c table-fixed margin-0">
+ <thead>
+  <tr>    
+    <th width="70">序号</th>
+    <th width="90">地域</th>
+    <th width="110">服务单位</th>
+    <th>url</th>
+    <th width="120">网站首页url</th>
+    <th width="120">新闻中心首页url</th>
+    <th width="160">创建时间</th>
+    <th width="160">修改时间</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+    <td>1</td>
+    <td>天津</td>
+    <td>北方网</td>
+    <td>weibo.com/323</td>    
+    <td>weibo.com/323</td>
+    <td>weibo.com/323</td>
+    <td>2018-04-13  08:34</td>
+    <td>2018-05-02  08:23</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>天津</td>
+    <td>北方网</td>
+    <td>http://192.168.0.101:8021/newsMediaDataStatisticsSystem-html/historyList.html</td>    
+    <td>weibo.com/323</td>
+    <td>weibo.com/323</td>
+    <td>2018-04-13  08:34</td>
+    <td>2018-05-02  08:23</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>天津</td>
+    <td>北方网</td>
+    <td>http://192.168.0.101:8021/newsMediaDataStatisticsSystem-html/historyList.html</td>    
+    <td>weibo.com/323</td>
+    <td>weibo.com/323</td>
+    <td>2018-04-13  08:34</td>
+    <td>2018-05-02  08:23</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>天津</td>
+    <td>北方网</td>
+    <td>http://192.168.0.101:8021/newsMediaDataStatisticsSystem-html/historyList.html</td>    
+    <td>weibo.com/323</td>
+    <td>weibo.com/323</td>
+    <td>2018-04-13  08:34</td>
+    <td>2018-05-02  08:23</td>
+  </tr>
+ </tbody>
+         							
+         						</table>
+    <!-- pc end--> 
+         					</div>
+                  
+         				</div>
+         				<div class="panel-footer clearfix line-top padding-10">
+                    <div class="pull-right" id="haha">
+                        <div id="paginator"></div>
+                    </div>
+                </div>
+         			</div>
+         		</div>         		  
+         	</div>
+         	 
+         	 
+         	 
+         </div>
+      </div>
+    </div>
+           	 
+  </div>
+  <!-- End Page -->
+
+ 
+  <!-- Footer -->
+  
+  <footer class="site-footer">
+    <div class="site-footer-legal">© 2018 网络传播-新闻媒体数据统计系统 </div>
+    <div class="site-footer-right">
+      版权所有  <a href="http://wyq.sina.com/">wyq.sina.com</a>
+    </div>
+  </footer>
+ 
+ <!-- 添加媒体 start -->
+<div class="modal fade modal-fade-in-scale-up" id="addMediaModal" aria-hidden="true" aria-labelledby="addMediaModal" role="dialog" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header bg-grey-200 padding-top-10 padding-bottom-10">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">×</span>
+            </button>
+						<h4 class="modal-title font-size-14">添加媒体</h4>
+					</div>
+					<div class="modal-body padding-horizontal-0">
+						<div class="form-horizontal">
+							<div class="form-group">
+								<label class="col-md-4 control-label text-right">媒体类型</label>
+								<div class="col-md-6">
+									<select class="selectpicker">                    
+                    <option>微博</option>
+                    <option>微信</option>
+                    <option>app</option>
+                    <option>pc</option>
+                  </select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label text-right">媒体地域</label>
+								<div class="col-md-6">
+									<select class="selectpicker">                    
+                    <option>请选择</option>
+                    <option>北京</option>
+                    <option>天津</option>
+                    <option>上海</option>
+                    <option>重庆</option>
+                    <option>黑龙江</option>
+                    <option>天津</option>
+                    <option>吉林</option>
+                    <option>辽宁</option>
+                    <option>河北</option>
+                    <option>山西</option>
+                    <option>青海</option>
+                    <option>山东</option>
+                    <option>河南</option>
+                    <option>江苏</option>
+                    <option>安徽</option>
+                    <option>浙江</option>
+                    <option>福建</option>
+                    <option>江西</option>
+                    <option>湖南</option>
+                    <option>湖北</option>
+                    <option>广东</option>
+                    <option>台湾</option>
+                    <option>海南</option>
+                    <option>甘肃</option>
+                    <option>陕西</option>
+                    <option>四川</option>
+                    <option>贵州</option>
+                    <option>云南</option>
+                    <option>内蒙古</option>
+                    <option>新疆</option>
+                    <option>西藏</option>
+                    <option>宁夏</option>
+                    <option>广西</option>
+                    <option>香港</option>
+                    <option>澳门</option>
+                  </select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label text-right">服务单位</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" name="name" value="">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label text-right">url</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" name="name" value="">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label text-right">微博昵称</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" name="name" value="">
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					<div class="modal-footer text-center">
+						<button class="btn btn-primary width-100" data-dismiss="modal" onclick="addMedia(this)">添加</button>
+						<button class="btn btn-default width-100" data-dismiss="modal">取消</button>
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- 添加媒体 end -->
+
+  <!-- Core 主要js文件  -->
+  <script src="../../global/vendor/jquery/jquery.min.js"></script>
+  <script src="../../global/vendor/bootstrap/bootstrap.min.js"></script>
+  <script src="../../global/vendor/animsition/animsition.min.js"></script>
+  <script src="../../global/vendor/asscroll/jquery-asScroll.min.js"></script>
+  <script src="../../global/vendor/mousewheel/jquery.mousewheel.min.js"></script>
+  <script src="../../global/vendor/asscrollable/jquery.asScrollable.all.min.js"></script>
+  <script src="../../global/vendor/ashoverscroll/jquery-asHoverScroll.min.js"></script>
+  <script src="../../global/vendor/waves/waves.min.js"></script>
+  
+  <script src="../../global/vendor/bootstrap-select/bootstrap-select.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="../../global/vendor/aspaginator/asPaginator.css"/>
+  <script src="../../global/vendor/aspaginator/jquery-asPaginator.min.js"></script>
+
+
+  <link rel="stylesheet" href="../../global/vendor/bootstrap-sweetalert/sweet-alert.min.css?v2.2.0">
+  <script src="../../global/vendor/bootstrap-sweetalert/sweet-alert.min.js"></script>
+  <!-- Scripts -->
+  <script src="../../global/js/core.min.js"></script>
+  <script src="../../base/assets/js/site.min.js"></script>
+
+  <script src="../../base/assets/js/sections/menu.min.js"></script>
+  <script src="../../base/assets/js/sections/menubar.min.js"></script>
+  <script src="../../base/assets/js/sections/gridmenu.min.js"></script>
+  <script src="../../base/assets/js/sections/sidebar.min.js"></script>
+ 
+  <script src="../../base/assets/js/common.min.js"></script>  
+
+
+<script type="text/javascript">
+
+//翻页效果
+	 $("#paginator").asPaginator(100, {
+                  currentPage: page,                 
+                   visibleNum: {
+                    0: 2,
+                    480: 3,
+                    960: 5
+                  },
+                  tpl: function() {
+                    return '<ul>{{prev}}{{altLists}}{{next}}</ul>';
+                  },
+                  components: {
+                    first: true,
+                    prev: {
+				tpl: function() {
+					return '<li class="' + this.namespace + '-prev"><a href="javascript:void(0)"><span class="icon">&#xe606;</span></a></li>'
+				}
+			},
+			next: {
+				tpl: function() {
+					return '<li class="' + this.namespace + '-next"><a href="javascript:void(0)"><span class="icon">&#xe60a;</span></a></li>'
+				}
+			},
+                    //last: true,
+                    //lists: true,
+                    altLists: true
+                  },
+                  onChange: function(page) {
+                    var url = '' + page;
+                    console.log('ajax request')
+                    $.ajax({
+                      url: url,
+                      dataType: 'json',
+                      success: function(data) {}
+                    })
+                  }
+                });
+                
+                
+//创建媒体成功提示效果
+	function addMedia(me) {
+        swal({title:"创建成功!\n该媒体已经创建成功",showConfirmButton: "!0",confirmButtonText:"确定",type:"success"});
+    }
+	
+	
+	
+
+ 
+</script>
+<script type="text/javascript">
+function update(){
+	$("#haha").html("");
+	var html = "";
+	html += "<div id='paginator'></div>";
+	$("#haha").html(html);
+	
+	$("#paginator").asPaginator(200, {
+                  currentPage: 8,                 
+                   visibleNum: {
+                    0: 2,
+                    480: 3,
+                    960: 5
+                  },
+                  tpl: function() {
+                    return '<ul>{{prev}}{{altLists}}{{next}}</ul>';
+                  },
+                  components: {
+                    first: true,
+                    prev: {
+				tpl: function() {
+					return '<li class="' + this.namespace + '-prev"><a href="javascript:void(0)"><span class="icon">&#xe606;</span></a></li>'
+				}
+			},
+			next: {
+				tpl: function() {
+					return '<li class="' + this.namespace + '-next"><a href="javascript:void(0)"><span class="icon">&#xe60a;</span></a></li>'
+				}
+			},
+                    //last: true,
+                    //lists: true,
+                    altLists: true
+                  },
+                  onChange: function(page) {
+                    var url = '' + page;
+                    console.log('ajax request')
+                    $.ajax({
+                      url: url,
+                      dataType: 'json',
+                      success: function(data) {}
+                    })
+                  }
+                });
+	}
+</script>
+ 
+</body>
+
+</html>

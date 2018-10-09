@@ -1,0 +1,47 @@
+#port
+server:
+  port: 8080
+#beetl模板引擎配置
+beetl: 
+  templatesPath: templates/ 
+#spring配置
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://127.0.0.1:3306/boot?useUnicode=true&characterEncoding=UTF-8
+      driver-class-name: com.mysql.jdbc.Driver
+      username: cheng
+      password: 123456
+      max-active: 100
+      min-idle: 5
+      initial-size: 10
+      max-wait: 10000
+      test-while-idle: true
+      test-on-borrow: true
+      validation-query: SELECT 1
+      time-between-eviction-runs-millis: 300000
+      min-evictable-idle-time-millis: 60000
+      filters: stat,wall,log4j
+      stat-view-servlet:
+        login-username: chengf
+        login-password: chengf
+        reset-enable: false
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: \*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*
+
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        format_sql: true
+        
+        
+########################################################################################################################        

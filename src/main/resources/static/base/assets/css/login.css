@@ -1,0 +1,54 @@
+/*!
+ * Remark (http://getbootstrapadmin.com/remark)
+ * Copyright 2016 amazingsurge
+ * Licensed under the Themeforest Standard Licenses
+ */
+.page-login {background-color: #e7eaec;}
+
+.page-login .panel {
+	width: 400px;
+	margin-bottom: 45px;
+	background: #fff;
+	-webkit-box-shadow: 0 1px 12px 0 rgba(0,0,0,.2);
+    box-shadow: 0 1px 12px 0 rgba(0,0,0,.2);
+	border-radius: 0
+	
+}
+
+.page-login .panel .panel-body {
+	padding: 50px 40px 40px
+}
+
+.page-login .panel .brand-text {
+	margin-top: 8px
+}
+
+.page-login form {
+	margin: 45px 0 30px
+}
+
+.page-login form a {
+	margin-left: 20px
+}
+
+.page-login form .form-material.floating+.page-login form .form-material.floating {
+	margin-top: 30px
+}
+
+.page-login form .form-material label {
+	color: #a3afb7;
+	font-weight: 300
+}
+.page-login footer a{color: #6e7584;}
+@media (max-width:480px) {
+	.page-login .page-content {
+		padding: 30px 10px
+	}
+	.page-login .panel {
+		width: auto;
+		padding: 10px
+	}
+	.page-login .panel .panel-body {
+		padding: 35px 25px 35px
+	}
+}
