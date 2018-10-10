@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Properties;
 
 /**
- *
+ *	获取properties配置文件的值
  * @author  chengfan
  * @version 2018年9月29日
  */
