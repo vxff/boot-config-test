@@ -43,6 +43,26 @@ spring:
         dialect: org.hibernate.dialect.MySQL5Dialect
         format_sql: true
 
+  
+  mail: 
+    host: smtp.qq.com
+    username: 710120320@qq.com
+    password: ucyixdnehzqvbdef
+    protocol: smtp
+    properties:
+      mail: 
+        smtp: 
+          auth:  true
+          port: 465
+          starttls: 
+            enable: true
+            required: true
+          ssl.enable: true
+      mail.display.sendmail: Javen
+      mail.display.sendname: Spring Boot Guide Email
+    default-encoding: utf-8
+    from: 710120320@qq.com
+      
 
 apache: 
   rocketmq: 

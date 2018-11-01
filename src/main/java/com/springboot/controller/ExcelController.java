@@ -19,12 +19,14 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
+import org.springframework.stereotype.Controller;
 
 /**
  *
  * @author  chengfan
  * @version 2018年9月29日
  */
+@Controller
 public class ExcelController {
 	
 	public void exportExcle(HttpServletRequest request, HttpServletResponse response) {

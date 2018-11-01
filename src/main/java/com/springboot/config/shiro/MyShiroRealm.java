@@ -32,7 +32,7 @@ public class MyShiroRealm extends AuthorizingRealm{
 		UsernamePasswordToken upToken = (UsernamePasswordToken)token;
 		String username = upToken.getUsername();
 		User user = userService.findByUsername(username);
-		if (user==null) {
+		if (null==user) {
 			throw new UnknownAccountException("用户名不存在");
 		}
 		Object principal = username;
@@ -40,7 +40,7 @@ public class MyShiroRealm extends AuthorizingRealm{
 		ByteSource credentialsSalt = ByteSource.Util.bytes(user.getCredentialsSalt());
 		// realName 父类的
 		String realmName = getName();
-		SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(principal, hashedCredentials,credentialsSalt,realmName);
+		SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(principal,hashedCredentials,credentialsSalt,realmName);
 		return info;
 	}
 
