@@ -1,35 +1,49 @@
 #port
 server:
   port: 8080
+  
 #beetl模板引擎配置
 beetl: 
   templatesPath: templates/ 
+  
 #spring配置
 spring:
+  profiles:
+    active: dev
+   
   datasource:
-    druid:
-      url: jdbc:mysql://127.0.0.1:3306/boot?useUnicode=true&characterEncoding=UTF-8
-      driver-class-name: com.mysql.jdbc.Driver
+    hikari:      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/boot?useUnicode=true&characterEncoding=UTF-8
       username: cheng
       password: 123456
-      max-active: 100
-      min-idle: 5
-      initial-size: 10
-      max-wait: 10000
-      test-while-idle: true
-      test-on-borrow: true
-      validation-query: SELECT 1
-      time-between-eviction-runs-millis: 300000
-      min-evictable-idle-time-millis: 60000
-      filters: stat,wall,log4j
-      stat-view-servlet:
-        login-username: chengf
-        login-password: chengf
-        reset-enable: false
-      web-stat-filter:
-        enabled: true
-        url-pattern: /*
-        exclusions: \*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*
+      auto-commit: true
+      maximum-pool-size: 100
+      minimum-idle: 5
+      connection-test-query: SELECT 1
+      
+#    druid:
+#      url: jdbc:mysql://127.0.0.1:3306/boot?useUnicode=true&characterEncoding=UTF-8
+#      driver-class-name: com.mysql.jdbc.Driver
+#      username: cheng
+#      password: 123456
+#      max-active: 100
+#      min-idle: 5
+#      initial-size: 10
+#      max-wait: 10000
+#      test-while-idle: true
+#      test-on-borrow: true
+#      validation-query: SELECT 1
+#      time-between-eviction-runs-millis: 300000
+#      min-evictable-idle-time-millis: 60000
+#      filters: stat,wall,log4j
+#      stat-view-servlet:
+#        login-username: chengf
+#        login-password: chengf
+#        reset-enable: false
+#      web-stat-filter:
+#        enabled: true
+#        url-pattern: /*
+#        exclusions: \*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*
 
   jpa:
     database: mysql
@@ -58,8 +72,6 @@ spring:
             enable: true
             required: true
           ssl.enable: true
-      mail.display.sendmail: Javen
-      mail.display.sendname: Spring Boot Guide Email
     default-encoding: utf-8
     from: 710120320@qq.com
       
