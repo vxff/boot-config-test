@@ -5,21 +5,23 @@ server:
 #beetl模板引擎配置
 beetl: 
   templatesPath: templates/ 
+beetlsql: 
+  basePackage: com.springboot.dao
+  sqlPath: /sql
+  dbStyle: org.beetl.sql.core.db.MySqlStyle  
+  daoSuffix: Dao
+beetl-beetlsql:
+  dev: true
   
 #spring配置
 spring:
-  profiles:
-    active: dev
-   
+#  profiles:
+#    active: dev
   datasource:
-    hikari:      driver-class-name: com.mysql.jdbc.Driver
-      jdbc-url: jdbc:mysql://127.0.0.1:3306/boot?useUnicode=true&characterEncoding=UTF-8
+      url: jdbc:mysql://127.0.0.1:3306/boot?useUnicode=true&characterEncoding=UTF-8
+      driver-class-name: com.mysql.jdbc.Driver
       username: cheng
       password: 123456
-      auto-commit: true
-      maximum-pool-size: 100
-      minimum-idle: 5
-      connection-test-query: SELECT 1
       
 #    druid:
 #      url: jdbc:mysql://127.0.0.1:3306/boot?useUnicode=true&characterEncoding=UTF-8
@@ -76,13 +78,6 @@ spring:
     from: 710120320@qq.com
       
 
-apache: 
-  rocketmq: 
-    consumer: 
-      PushConsumer: PushConsumer
-    producer:
-      producerGroup: Producer  
-    namesrvAddr: 192.168.48.128:9876
       
            
         

@@ -1,0 +1,3 @@
+selectByAll
+===
+	select * from people
