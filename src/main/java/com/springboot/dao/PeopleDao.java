@@ -3,6 +3,7 @@ package com.springboot.dao;
 import java.util.List;
 
 import org.beetl.sql.core.annotatoin.SqlResource;
+import org.beetl.sql.core.engine.PageQuery;
 import org.beetl.sql.core.mapper.BaseMapper;
 
 import com.springboot.pojo.People;
@@ -16,4 +17,6 @@ import com.springboot.pojo.People;
 public interface PeopleDao extends BaseMapper<People> {
 
 	public List<People> selectByAll();
+	
+	public List<People> selectByPage(PageQuery<People> query);
 }
